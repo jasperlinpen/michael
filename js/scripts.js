@@ -80,7 +80,7 @@
                       element1.style.width = width + '%'; 
                    } 
 				           	
-                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2449:STOCK&quote=1',function(data){
+                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2303:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
@@ -144,7 +144,7 @@
                 });     
                      
               //  2nd stock section  
-                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2324:STOCK&quote=1',function(data){
+                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2317:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
@@ -208,7 +208,7 @@
                 });    
             //  Ending 2nd stock section 
             //  3rd stock section   
-                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:1102:STOCK&quote=1',function(data){
+                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2347:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
