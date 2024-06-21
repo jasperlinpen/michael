@@ -3,12 +3,14 @@
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
 			  str_2="2449", 
 			  str_3=":STOCK&quote=1" 
-			  ajaxURL= str_1 + str_2 + str_3; 				  
+			  ajaxURL= str_1 + str_2 + str_3
+			  s01_val="0" ; 				  
           window.addEventListener('load',function(){
 		  getDATA();
           getWDATA();
-          element1.style.width = '0%'; 	
-          document.getElementById("s01").addEventListener("change", refreshTime); 	  
+          element1.style.width = '0%';  
+          document.getElementById("s01").addEventListener("change", refreshTime); 
+          document.getElementById("s02").addEventListener("change", optionSel); 			  
           });
 		                              
           function refreshTime() {
@@ -68,6 +70,68 @@
 					 }
 
             }
+			
+          function optionSel() {
+			 s01_val=document.getElementById("s01").value ;
+			 switch ( s01_val ) {
+                      case "0": 
+                          width = 100;
+						  refSec = 99999 ;
+                       	  element1.style.width = '0%'; 
+                          break;
+                      case "1": 
+                      	  refSec = 3000 ;
+                           break;
+                      case "2":
+                           refSec = 5000 ;
+                           break;
+                      case "3": 
+                           refSec = 10000 ;
+                           break;
+                      case "4": 
+                      	   refSec = 20000 ;
+                           break;
+                      case "5": 
+                      	   refSec = 30000 ;
+                           break;
+                      case "6": 
+                    	   refSec = 60000 ;
+                           break;
+                      case "7": 
+                   	      refSec = 600000 ;
+                           break; 
+                      case "8": 
+                          refSec = 900000 ;
+                           break;
+                      case "9": 
+                    	   refSec = 1200000 ;
+                           break;
+                      case "10": 
+                   	      refSec = 1800000 ;
+                          break;                                     
+                      default:
+                         return;
+                    } 
+					
+                   str_2= $(this).val() ;
+                 //  str_2=document.getElementById("s02").value ;
+				   while(intervalIds.length){
+                          clearInterval(intervalIds.pop());
+                    }
+				   if  (refSec != 99999 ) {
+				       id = setInterval(getDATA,refSec);
+				       intervalIds.push(id); 
+					 }
+					 else 
+					 {
+				        while(intervalIds.length){
+                          clearInterval(intervalIds.pop());
+                        }
+						
+					 }
+
+            }			
+			
                      
           function getDATA() {
            	   var d = new Date();
@@ -404,7 +468,7 @@
                 });    
               //  Ending Weighed index section   
               //  Option selected index  section
-			 if (str_2 !="2449") {
+			 if (str_2 !="0") {
 				 ajaxURL=str_1 + str_2 + str_3 ;
               //  console.log(ajaxURL);		 
                  $.getJSON(ajaxURL,function(data){
