@@ -1,7 +1,7 @@
           const element1 = document.getElementById("myBar1");
           let width = 0 , intervalIds = []  ;
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
-			  str_2="0", 
+			  str_2="2449", 
 			  str_3=":STOCK&quote=1" 
 			  ajaxURL= str_1 + str_2 + str_3; 				  
           window.addEventListener('load',function(){
@@ -404,7 +404,7 @@
                 });    
               //  Ending Weighed index section   
               //  Option selected index  section
-			 if (str_2 !="0") {
+			 if (str_2 !="2449") {
 				 ajaxURL=str_1 + str_2 + str_3 ;
               //  console.log(ajaxURL);		 
                  $.getJSON(ajaxURL,function(data){
