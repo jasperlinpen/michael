@@ -114,6 +114,7 @@
                     } 
 					
                    str_2= $(this).val() ;
+				   getDATA();
                  //  str_2=document.getElementById("s02").value ;
 				   while(intervalIds.length){
                           clearInterval(intervalIds.pop());
