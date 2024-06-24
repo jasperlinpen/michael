@@ -145,19 +145,19 @@
                       element1.style.width = width + '%'; 
                    } 
 				           	
-                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2303:STOCK&quote=1',function(data){
+                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2449:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
-                    var itemData = item1; 	          
+                    var itemData = item1 , span_rpt="<span class='span_rpt'>(<a href='revenue.htm' onclick='showElement()'>M</a>)</span><span class='span_rpt'>(<a href='./revenue.htm'>S</a>)</span><span class='span_rpt'>(<a href='./revenue.htm'>Y</a>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
                     		  var itemData2 = item2;
                     		//  console.log(itemData2); 	
                     		  $.each(itemData2,function(key3,item3){  
                              if (key3 === '200009') {
-                 	           $("#span11").html(item3); 
+                 	           $("#span11").html(item3 + span_rpt); 
                              }
                              if (key3 === '6') {
                  	           $("#span12").html(item3);}
@@ -673,3 +673,12 @@
                  });
                 }); 
                };  
+			   
+			   
+	    function showElement() {
+			while(intervalIds.length){
+                  clearInterval(intervalIds.pop());
+             }
+            var element = document.getElementById("hiddenElement");
+            element.style.display = "block"; // Change display to block to make it visible
+        }

@@ -11376,7 +11376,7 @@ html {
 }
 
  table,th,td {
-         	   color:#fff ;
+         	 color:#fff ;
              border: 1px solid black;
              border-collapse: collapse;
  }
@@ -11392,5 +11392,14 @@ html {
  th:nth-child(1),td:nth-child(1) {
          background-color: rgba(150, 212, 212, 0.4);
  } 
+ 
+ .span_rpt {
+	 font-size: 1.25rem;	 
+ }
+
+ 
+#hiddenElement {
+     display: none; /* Initially hide the element */
+}
         
 
