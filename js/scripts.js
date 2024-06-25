@@ -150,7 +150,7 @@
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
-                    var itemData = item1 , span_rpt="<span class='span_rpt'>(<a href='revenue.htm' onclick='showElement()'>M</a>)</span><span class='span_rpt'>(<a href='./revenue.htm'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
+                    var itemData = item1 , span_rpt="<span class='span_rpt'>(<a href='revenue.htm' onclick='showElement()'>M</a>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
                     		  var itemData2 = item2;
