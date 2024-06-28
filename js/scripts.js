@@ -1,4 +1,5 @@
           const element1 = document.getElementById("myBar1");
+		  const element2 = document.getElementById("hiddenElement");
           let width = 0 , intervalIds = []  ;
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
 			  str_2="2449", 
@@ -6,6 +7,17 @@
 			  ajaxURL= str_1 + str_2 + str_3
 			  s01_val="0" ; 				  
           window.addEventListener('load',function(){
+	    // document.getElementById('hiddenElement').classList.add('displayElementYN');
+		  if (!element2.style.displayElementYN ) { 
+				console.log("NNN") ;
+			  //  element2.classList.add('displayElementYN');
+				element2.style.display = 'none';
+				console.log(element2.style.display) ;
+			   }
+            else 
+			{ 
+              // console.log(element2.style.display) ;
+		    }
 		  getDATA();
           getWDATA();
           element1.style.width = '0%';  
@@ -150,7 +162,7 @@
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
-                    var itemData = item1 , span_rpt="<span class='span_rpt'>(<a href='revenue.htm' onclick='showElement()'>M</a>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
+                    var itemData = item1 , span_rpt="<span class='span_rpt'>(<button onclick='showElement();'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
                     		  var itemData2 = item2;
@@ -679,6 +691,11 @@
 			while(intervalIds.length){
                   clearInterval(intervalIds.pop());
              }
-            var element = document.getElementById("hiddenElement");
-            element.style.display = "block"; // Change display to block to make it visible
-        }
+			 if (element2.style.display == "none" ) 
+                 element2.style.display = "block"  // Change display to block to make it visible
+             else
+      		     element2.style.display = "none" ;	
+            console.log(element2.style.display) ;
+		//	console.log (element.style.display) ;
+
+	    }		 
