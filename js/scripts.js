@@ -568,12 +568,12 @@
                     		  var itemData2 = item2;
                     		  var itemDataTemp ;
                     		//  Dowjon - starting
-                    		  $.each(itemData2[4],function(key3,item3){
+                    		  $.each(itemData2[3],function(key3,item3){
                             if (key3 === '6') {
                  	           itemDataTemp = item3 ;
                  	            }
-                    		  	if (key3 === '200009') {
-                    		  		  $("#dowjon").html(item3 + '<BR>' + itemDataTemp );
+                    		if (key3 === '200009') {
+                    		  	$("#dowjon").html(item3 + '<BR>' + itemDataTemp );
                              }   
                              if (key3 === '11') {
                  	              $("#dowjon-p").html(item3);                             	
@@ -596,7 +596,7 @@
                         }) ; 
                     		//  Dowjon - Ending  
                     		//  Nasdaq - starting
-                    		  $.each(itemData2[6],function(key3,item3){
+                    		  $.each(itemData2[5],function(key3,item3){
                     		  	if (key3 === '6') {
                  	              itemDataTemp = item3 ;
                  	            }
